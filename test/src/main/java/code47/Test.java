@@ -2,6 +2,7 @@ package code47;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -32,9 +33,8 @@ class Solution {
             res.add(new ArrayList<Integer>(path));
             return;
         }
-
         for (int i = 0; i < nums.length; i++) {
-            if (used[i] || (i > 0 && !used[i] && nums[i] == nums[i - 1])) {
+            if (used[i] || (i > 0 && !used[i-1] && nums[i] == nums[i - 1])) {
                 continue;
             }
             used[i] = true;
@@ -45,6 +45,4 @@ class Solution {
         }
 
     }
-
-
 }
